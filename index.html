@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>El Ocotal · Café de Nicaragua</title>
+<meta name="description" content="El Ocotal: café de origen nicaragüense, 100% arábica, tueste medio, tostado y molido. Concepto de sitio web no oficial.">
+<link href="assets/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --saco:#F1D417;      /* the bag's yellow */
+  --saco-deep:#E2C200;
+  --resina:#12110D;    /* pine-tar black */
+  --pino:#1C261E;      /* deep pine */
+  --foil:#C9A45C;      /* gold foil */
+  --foil-dim:#8C7442;
+  --hueso:#F3EEE1;     /* text on dark */
+  --tostado:#4A3220;
+
+  --f-display:"Antonio", "Arial Narrow", sans-serif;
+  --f-serif:"Cormorant Garamond", Georgia, serif;
+  --f-sans:"Montserrat", system-ui, sans-serif;
+
+  --gutter:clamp(16px, 5vw, 72px);
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--resina);color:var(--hueso);font-family:var(--f-sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--foil);outline-offset:4px;border-radius:2px}
+.on-yellow :focus-visible{outline-color:var(--resina)}
+
+/* language toggle */
+html[data-lang="es"] [lang="en"]{display:none!important}
+html[data-lang="en"] [lang="es"]{display:none!important}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--f-sans);font-weight:600;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:20;transition:background .4s, border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(18,17,13,.92);backdrop-filter:blur(8px);border-bottom-color:rgba(201,164,92,.18)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:44px;height:44px}
+.brand span{font-family:var(--f-serif);font-style:italic;font-size:1.45rem;color:var(--foil);letter-spacing:.01em}
+.nav ul{display:flex;gap:32px;list-style:none;align-items:center}
+.nav ul a{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:.8;transition:opacity .2s,color .2s}
+.nav ul a:hover{opacity:1;color:var(--foil)}
+.lang{display:flex;border:1px solid rgba(201,164,92,.4);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--hueso);font:600 .66rem/1 var(--f-sans);letter-spacing:.18em;padding:8px 12px;cursor:pointer;opacity:.55}
+.lang button[aria-pressed="true"]{background:var(--foil);color:var(--resina);opacity:1}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 0;
+  background:radial-gradient(ellipse 60% 55% at 72% 42%, rgba(201,164,92,.16), transparent 70%), var(--resina)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px;width:100%}
+.hero-copy .eyebrow{color:var(--foil);display:flex;align-items:center;gap:14px}
+.hero-copy .eyebrow::before{content:"";width:36px;height:1px;background:var(--foil)}
+.hero h1{margin:28px 0 0;line-height:.86}
+.hero h1 .script{display:block;font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--foil);font-size:clamp(2.6rem,6vw,5rem);line-height:1;margin-bottom:.3em;letter-spacing:-.01em}
+.unit{text-transform:none}
+.hero h1 .shout{display:block;font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(4.2rem,12.5vw,10.5rem);letter-spacing:-.005em;color:var(--hueso)}
+.hero h1 .shout em{font-style:normal;color:var(--saco)}
+.hero-sub{max-width:30rem;margin-top:32px;color:rgba(243,238,225,.72);font-size:1rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;font:600 .74rem/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:transform .25s, background .25s, color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-saco{background:var(--saco);color:var(--resina)}
+.btn-saco:hover{background:#fff0a0}
+.btn-line{border:1px solid rgba(243,238,225,.3);color:var(--hueso)}
+.btn-line:hover{border-color:var(--foil);color:var(--foil)}
+.btn-ink{background:var(--resina);color:var(--saco)}
+.btn-ink:hover{background:var(--pino)}
+
+.bag-stage{position:relative;justify-self:center;width:min(100%,380px)}
+.bag-stage::after{content:"";position:absolute;left:12%;right:12%;bottom:-18px;height:30px;background:radial-gradient(closest-side,rgba(0,0,0,.75),transparent);z-index:-1}
+.bag{width:100%;height:auto;filter:drop-shadow(0 40px 50px rgba(0,0,0,.5));animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both .15s}
+.bag .sheen{animation:sheen 7s ease-in-out infinite 1.6s}
+@keyframes rise{from{opacity:0;transform:translateY(40px) rotate(-2deg)}to{opacity:1;transform:none}}
+@keyframes sheen{0%,62%{transform:translateX(-420px)}100%{transform:translateX(420px)}}
+.hero-copy > *{animation:fade 1s ease both}
+.hero-copy > :nth-child(2){animation-delay:.12s}
+.hero-copy > :nth-child(3){animation-delay:.24s}
+.hero-copy > :nth-child(4){animation-delay:.36s}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.ridge{position:absolute;left:0;right:0;bottom:0;height:min(34vh,300px);z-index:1;pointer-events:none}
+.ridge svg{width:100%;height:100%}
+
+/* ---------- LABEL (signature) ---------- */
+.label{background:var(--saco);color:var(--resina);position:relative;padding:clamp(88px,12vw,160px) 0}
+.label::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,transparent 0 3px,rgba(0,0,0,.018) 3px 4px);pointer-events:none}
+.label-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(56px,8vw,96px);flex-wrap:wrap}
+.label-head h2{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.05;max-width:16ch}
+.label-head p{max-width:24rem;font-size:.95rem}
+.spec{list-style:none;border-top:2px solid var(--resina)}
+.spec li{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(22px,3.2vw,38px) 0;border-bottom:1px solid rgba(18,17,13,.35)}
+.spec .term{font-family:var(--f-display);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(3rem,8.4vw,7.4rem);letter-spacing:-.005em}
+.spec .term small{display:block;font-family:var(--f-sans);font-weight:600;font-size:.7rem;letter-spacing:.3em;margin-bottom:12px;opacity:.65}
+.spec .gloss{font-family:var(--f-serif);font-size:clamp(1.2rem,1.9vw,1.55rem);line-height:1.35;font-weight:500}
+.spec .gloss b{font-family:var(--f-sans);font-weight:600;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;display:block;margin-bottom:8px;opacity:.6}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- NAME ---------- */
+.name{background:var(--pino);padding:clamp(96px,13vw,170px) 0;position:relative;overflow:hidden}
+.name .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.name figure{position:relative}
+.name figure svg{width:100%;height:auto}
+.name .eyebrow{color:var(--foil)}
+.name h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.02;margin:20px 0 28px}
+.name h2 i{color:var(--foil)}
+.name p{color:rgba(243,238,225,.78);max-width:34rem}
+.name p + p{margin-top:18px}
+.def{margin-top:36px;padding:22px 26px;border-left:2px solid var(--foil);background:rgba(0,0,0,.18);max-width:34rem}
+.def dt{font-family:var(--f-serif);font-style:italic;font-size:1.6rem;color:var(--hueso)}
+.def dt span{font:500 .7rem/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--foil);margin-left:10px;font-style:normal}
+.def dd{margin-top:6px;color:rgba(243,238,225,.75);font-size:.95rem}
+
+/* ---------- BREW ---------- */
+.brew{padding:clamp(96px,13vw,170px) 0;background:var(--resina)}
+.brew-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:64px}
+.brew-head .eyebrow{color:var(--foil)}
+.brew-head h2{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(3rem,7vw,6rem);line-height:.9;margin-top:18px}
+.brew-head p{color:rgba(243,238,225,.7);max-width:28rem;justify-self:end}
+.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,164,92,.22);border:1px solid rgba(201,164,92,.22)}
+.method{background:var(--resina);padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:22px;transition:background .3s}
+.method:hover{background:#18160f}
+.method h3{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:2rem;line-height:1;color:var(--hueso)}
+.ratio{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:4px 28px;padding:18px 0;border-top:1px solid rgba(201,164,92,.25);border-bottom:1px solid rgba(201,164,92,.25)}
+.ratio dt{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--foil-dim);font-weight:600;grid-row:1}
+.ratio dd{font-family:var(--f-display);font-size:1.9rem;font-weight:600;color:var(--saco);line-height:1;font-variant-numeric:tabular-nums;grid-row:2}
+.method ol{list-style:none;counter-reset:s;display:grid;gap:10px;font-size:.92rem;color:rgba(243,238,225,.75)}
+.method ol li{counter-increment:s;display:grid;grid-template-columns:22px 1fr}
+.method ol li::before{content:counter(s);font-family:var(--f-display);color:var(--foil);font-weight:600}
+.keep{margin-top:56px;display:flex;gap:18px 40px;flex-wrap:wrap;align-items:baseline;color:rgba(243,238,225,.7);font-size:.92rem}
+.keep strong{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:1.4rem;color:var(--hueso)}
+
+/* ---------- ORDER ---------- */
+.order{background:var(--saco);color:var(--resina);padding:clamp(96px,12vw,150px) 0;position:relative;overflow:hidden}
+.order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(48px,8vw,120px);align-items:center}
+.order .bag-stage{width:min(100%,340px)}
+.order .bag{animation:none}
+.order .eyebrow{opacity:.7}
+.order h2{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(3.4rem,9vw,7.4rem);line-height:.88;margin:18px 0 36px}
+.order h2 i{font-family:var(--f-serif);text-transform:none;font-weight:500;display:block;font-size:.42em;line-height:1.1}
+.product{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0 44px;padding:20px 0;border-top:2px solid var(--resina);border-bottom:1px solid rgba(18,17,13,.35)}
+.product dt,.origin dt{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;opacity:.6}
+.product dd{font-family:var(--f-serif);font-size:1.6rem;font-weight:500;line-height:1.2;margin-top:4px}
+.qty-row{display:flex;align-items:center;gap:28px;margin:30px 0;flex-wrap:wrap}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--resina);border-radius:999px}
+.qty button{background:none;border:0;width:46px;height:46px;font:500 1.3rem/1 var(--f-sans);color:var(--resina);cursor:pointer;border-radius:999px}
+.qty button:hover{background:rgba(18,17,13,.08)}
+.qty output{min-width:2ch;text-align:center;font-family:var(--f-display);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+.total{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+.total strong{font-family:var(--f-display);font-size:1.9rem;letter-spacing:0;margin-left:10px;font-variant-numeric:tabular-nums}
+.order-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-ink-line{border:1.5px solid var(--resina);color:var(--resina)}
+.btn-ink-line:hover{background:var(--resina);color:var(--saco)}
+.ship{margin-top:26px;font-size:.88rem;max-width:30rem;opacity:.8}
+
+/* origin facts (inside name section) */
+.name .wrap.origin-wrap{display:block;margin-top:clamp(64px,8vw,110px)}
+.origin{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,164,92,.4)}
+.origin > div{padding:26px 24px 6px 0}
+.origin > div + div{padding-left:24px;border-left:1px solid rgba(201,164,92,.2)}
+.origin dt{color:var(--foil);opacity:1}
+.origin dd{font-family:var(--f-serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.2;margin-top:8px;color:var(--hueso)}
+.origin small{font-family:var(--f-sans);font-size:.7rem;letter-spacing:.14em;opacity:.7}
+
+/* 3D bean */
+.bean-stage{position:relative;justify-self:center;width:min(100%,640px);aspect-ratio:1;margin-right:calc(var(--gutter) * -0.6);cursor:grab;touch-action:pan-y;animation:fade 1.6s ease both .2s}
+.bean-stage:active{cursor:grabbing}
+.bean-stage::before{content:"";position:absolute;inset:14%;border-radius:50%;background:radial-gradient(closest-side,rgba(201,164,92,.22),transparent 72%);z-index:-1}
+.bean-stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block}
+.bean-stage .bean-back{filter:blur(3px);opacity:.85}
+/* film grain + vignette over the hero, for a photographic finish */
+.hero::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,transparent 55%,rgba(0,0,0,.55))}
+.bean-hint{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--foil);opacity:.6;white-space:nowrap;pointer-events:none}
+.bean-stage.nogl .bean-hint{display:none}
+
+/* placeholder highlighter: add ?ph to the URL */
+html.ph [data-ph]{outline:2px dashed #e0457b;outline-offset:3px}
+
+/* ---------- FOOTER (foil band) ---------- */
+footer{background:linear-gradient(180deg,var(--resina) 0%,#2a2414 55%,#6d5a2c 100%);padding:80px 0 36px;color:var(--hueso)}
+footer .top{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+footer .stamp{font-family:var(--f-sans);font-weight:600;letter-spacing:.14em;font-size:clamp(1.3rem,3vw,2rem);text-transform:uppercase}
+footer .meta{display:flex;gap:28px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,225,.18);font-size:.72rem;opacity:.6;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .nav ul li.link{display:none}
+  .hero{padding-top:100px}
+  .hero .wrap{grid-template-columns:1fr;gap:56px;padding-bottom:120px}
+  .hero .wrap{gap:8px}
+  .bean-stage{width:min(100%,440px);margin:0 auto}
+  .order-grid{grid-template-columns:1fr}
+  .order .bag-stage{width:min(64vw,260px)}
+  .origin{grid-template-columns:1fr 1fr}
+  .origin > div:nth-child(3){padding-left:0;border-left:0}
+  .product{gap:0 28px}
+  .spec li{grid-template-columns:1fr;gap:12px}
+  .name .wrap{grid-template-columns:1fr}
+  .name figure{max-width:360px}
+  .brew-head{grid-template-columns:1fr}
+  .brew-head p{justify-self:start}
+  .methods{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- shared logo (approximation of the packaging mark — replace with the original vector) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="pine" viewBox="0 0 20 40">
+      <path d="M10 0 L15 10 L13 10 L18 19 L15 19 L20 30 L11.5 30 L11.5 40 L8.5 40 L8.5 30 L0 30 L5 19 L2 19 L7 10 L5 10 Z"/>
+    </symbol>
+    <symbol id="logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width=".6" opacity=".6"/>
+      <use href="#pine" x="20" y="34" width="13" height="28" fill="currentColor"/>
+      <use href="#pine" x="31" y="26" width="16" height="36" fill="currentColor"/>
+      <use href="#pine" x="53" y="26" width="16" height="36" fill="currentColor"/>
+      <use href="#pine" x="67" y="34" width="13" height="28" fill="currentColor"/>
+      <path d="M50 30 c-7 6 -7 24 0 32 c7 -8 7 -26 0 -32 z M50 32 c3 7 -3 18 0 28" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M16 70 Q50 64 84 70" fill="none" stroke="currentColor" stroke-width="1"/>
+    </symbol>
+    <linearGradient id="foilSide" x1="0" x2="1">
+      <stop offset="0" stop-color="#5d5f63"/><stop offset=".35" stop-color="#e7e8ea"/><stop offset=".55" stop-color="#8b8d92"/><stop offset="1" stop-color="#2b2c2f"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#121109"/><stop offset=".55" stop-color="#2b2410"/><stop offset="1" stop-color="#7a6430"/>
+    </linearGradient>
+    <linearGradient id="sheenGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="windowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e0d09"/><stop offset="1" stop-color="#231d10"/>
+    </linearGradient>
+    <clipPath id="bagClip"><path d="M30 34 L310 34 L320 546 Q320 556 310 556 L30 556 Q20 556 20 546 Z"/></clipPath>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="El Ocotal, inicio">
+      <svg style="color:var(--foil)"><use href="#logo"/></svg>
+      <span>el Ocotal</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li class="link"><a href="#etiqueta"><span lang="es">El café</span><span lang="en">The coffee</span></a></li>
+        <li class="link"><a href="#nombre"><span lang="es">El nombre</span><span lang="en">The name</span></a></li>
+        <li class="link"><a href="#preparar"><span lang="es">Preparar</span><span lang="en">Brew</span></a></li>
+        <li class="link"><a href="#pedidos"><span lang="es">Pedidos</span><span lang="en">Order</span></a></li>
+        <li>
+          <div class="lang" role="group" aria-label="Idioma / Language">
+            <button type="button" data-set="es" aria-pressed="true">ES</button>
+            <button type="button" data-set="en" aria-pressed="false">EN</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow"><span lang="es">Café de origen · Nicaragua</span><span lang="en">Single-origin · Nicaragua</span></p>
+      <h1 id="h1">
+        <span class="script">el Ocotal</span>
+        <span class="shout"><span lang="es">Café de<br><em>Nicaragua</em></span><span lang="en">Coffee of<br><em>Nicaragua</em></span></span>
+      </h1>
+      <p class="hero-sub">
+        <span lang="es">Cien por ciento arábica, tueste medio. Tostado y molido en Nicaragua, listo para tu colador o tu cafetera.</span>
+        <span lang="en">One hundred percent arabica, medium roast. Roasted and ground in Nicaragua, ready for your pour-over or drip machine.</span>
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-saco" href="#pedidos"><span lang="es">Pedir una bolsa</span><span lang="en">Order a bag</span> →</a>
+        <a class="btn btn-line" href="#etiqueta"><span lang="es">Leer la etiqueta</span><span lang="en">Read the label</span></a>
+      </div>
+    </div>
+
+    <div class="bean-stage" id="bean" role="img" aria-label="Grano de café tostado en 3D. Arrástralo para girarlo.">
+      <p class="bean-hint" aria-hidden="true"><span lang="es">Arrastra para girar</span><span lang="en">Drag to turn</span></p>
+    </div>
+  </div>
+
+  <div class="ridge" aria-hidden="true"><svg id="ridge" preserveAspectRatio="none" viewBox="0 0 1440 300"></svg></div>
+</section>
+
+<!-- LABEL: the signature — the bag's own label, read line by line -->
+<section class="label on-yellow" id="etiqueta" aria-labelledby="label-h">
+  <div class="wrap">
+    <div class="label-head">
+      <h2 id="label-h"><span lang="es">Todo lo que importa cabe en la etiqueta.</span><span lang="en">Everything that matters fits on the label.</span></h2>
+      <p><span lang="es">Sin adornos ni promesas de más. Esto es lo que dice la bolsa, renglón por renglón, y lo que significa en tu taza.</span><span lang="en">No ornaments, no overpromising. Here's what the bag says, line by line, and what it means in your cup.</span></p>
+    </div>
+    <ol class="spec">
+      <li class="reveal">
+        <div class="term"><small><span lang="es">Origen</span><span lang="en">Origin</span></small><span lang="es">Café de origen</span><span lang="en">Single origin</span></div>
+        <p class="gloss"><span lang="es">Todo el grano viene de Nicaragua. No es una mezcla de países: lo que pruebas es un solo lugar.</span><span lang="en">Every bean comes from Nicaragua. Not a blend of countries: what you taste is one place.</span></p>
+      </li>
+      <li class="reveal">
+        <div class="term"><small><span lang="es">Grano</span><span lang="en">Bean</span></small>100% Arábica</div>
+        <p class="gloss"><span lang="es">Solo <i>Coffea arabica</i>, sin robusta. Más aroma, acidez más limpia y menos amargor.</span><span lang="en">Only <i>Coffea arabica</i>, no robusta. More aroma, cleaner acidity, less bitterness.</span></p>
+      </li>
+      <li class="reveal">
+        <div class="term"><small><span lang="es">Tueste</span><span lang="en">Roast</span></small><span lang="es">Tueste medio</span><span lang="en">Medium roast</span></div>
+        <p class="gloss"><span lang="es">El punto de equilibrio: conserva el carácter del grano y suma el dulzor del tostado. Va bien solo o con leche.</span><span lang="en">The balance point: it keeps the bean's character and adds the sweetness of the roast. Good black or with milk.</span></p>
+      </li>
+      <li class="reveal">
+        <div class="term"><small><span lang="es">Listo</span><span lang="en">Ready</span></small><span lang="es">Tostado y molido</span><span lang="en">Roasted &amp; ground</span></div>
+        <p class="gloss"><span lang="es">No necesitas molino. Abre la bolsa, mide y prepara.</span><span lang="en">No grinder needed. Open the bag, measure, brew.</span></p>
+      </li>
+      <li class="reveal">
+        <div class="term"><small><span lang="es">Peso neto</span><span lang="en">Net weight</span></small>400 <span class="unit">g</span></div>
+        <p class="gloss"><span lang="es">Unas cuarenta tazas, a diez gramos por taza.</span><span lang="en">About forty cups, at ten grams a cup.</span></p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- NAME -->
+<section class="name" id="nombre" aria-labelledby="name-h">
+  <div class="wrap">
+    <figure class="reveal" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A45C" stroke-width="1" opacity=".35"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#C9A45C" stroke-width="1" opacity=".2"/>
+        <g fill="#C9A45C">
+          <use href="#pine" x="70" y="150" width="50" height="100" opacity=".35"/>
+          <use href="#pine" x="110" y="110" width="66" height="132" opacity=".6"/>
+          <use href="#pine" x="160" y="70" width="80" height="170" />
+          <use href="#pine" x="224" y="110" width="66" height="132" opacity=".6"/>
+          <use href="#pine" x="280" y="150" width="50" height="100" opacity=".35"/>
+        </g>
+        <path d="M40 260 Q200 236 360 260" fill="none" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="200" y="306" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="40" fill="#F3EEE1">ocote</text>
+        <text x="200" y="330" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="9" letter-spacing="4" fill="#C9A45C">PINUS · NICARAGUA</text>
+      </svg>
+    </figure>
+    <div class="reveal">
+      <p class="eyebrow"><span lang="es">El nombre</span><span lang="en">The name</span></p>
+      <h2><span lang="es">Un <i>ocotal</i> es un bosque de pinos.</span><span lang="en">An <i>ocotal</i> is a pine forest.</span></h2>
+      <p><span lang="es">En Nicaragua le dicen ocote al pino de resina, la astilla que enciende el fogón donde se cuela el café de la mañana. Un ocotal es el lugar donde crecen.</span><span lang="en">In Nicaragua, <i>ocote</i> is the resinous pine, the splinter that lights the stove where the morning coffee is brewed. An <i>ocotal</i> is where those pines grow.</span></p>
+      <p><span lang="es">Por eso hay pinos en el logo. Es un nombre de montaña para un café de montaña.</span><span lang="en">That's why there are pines on the logo. A mountain name for a mountain coffee.</span></p>
+      <dl class="def">
+        <dt>ocotal <span lang="es">sustantivo</span><span lang="en">noun</span></dt>
+        <dd><span lang="es">Sitio poblado de ocotes. Del náhuatl <i>ocotl</i>, tea o antorcha de pino.</span><span lang="en">A place grown with ocote pines. From Nahuatl <i>ocotl</i>, a pine torch.</span></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="wrap origin-wrap">
+    <dl class="origin reveal">
+      <div><dt><span lang="es">Región</span><span lang="en">Region</span></dt><dd data-ph>Nueva Segovia</dd></div>
+      <div><dt><span lang="es">Altura</span><span lang="en">Altitude</span></dt><dd data-ph>1.200–1.500 <small>msnm</small></dd></div>
+      <div><dt><span lang="es">Proceso</span><span lang="en">Process</span></dt><dd data-ph><span lang="es">Lavado</span><span lang="en">Washed</span></dd></div>
+      <div><dt><span lang="es">En la taza</span><span lang="en">In the cup</span></dt><dd data-ph><span lang="es">Chocolate de leche, panela, nuez</span><span lang="en">Milk chocolate, panela, walnut</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- BREW -->
+<section class="brew" id="preparar" aria-labelledby="brew-h">
+  <div class="wrap">
+    <div class="brew-head">
+      <div>
+        <p class="eyebrow"><span lang="es">Preparación</span><span lang="en">Brewing</span></p>
+        <h2 id="brew-h"><span lang="es">Tres maneras<br>de colarlo</span><span lang="en">Three ways<br>to brew it</span></h2>
+      </div>
+      <p><span lang="es">Un tueste medio perdona mucho, pero agua bien caliente y la medida correcta hacen la diferencia. Empieza aquí y ajusta a tu gusto.</span><span lang="en">A medium roast is forgiving, but hot water and the right dose make the difference. Start here and adjust to taste.</span></p>
+    </div>
+
+    <div class="methods">
+      <article class="method reveal">
+        <h3><span lang="es">Cafetera de goteo</span><span lang="en">Drip machine</span></h3>
+        <dl class="ratio"><dt><span lang="es">Café</span><span lang="en">Coffee</span></dt><dd>60 g</dd><dt><span lang="es">Agua</span><span lang="en">Water</span></dt><dd>1 L</dd><dt><span lang="es">Tazas</span><span lang="en">Cups</span></dt><dd>5–6</dd></dl>
+        <ol>
+          <li><span lang="es">Unas dos cucharadas por cada taza de agua.</span><span lang="en">About two tablespoons per cup of water.</span></li>
+          <li><span lang="es">Usa agua filtrada y fría en el depósito.</span><span lang="en">Use cold, filtered water in the reservoir.</span></li>
+          <li><span lang="es">Sírvelo pronto: la placa caliente lo amarga.</span><span lang="en">Serve soon; the hot plate turns it bitter.</span></li>
+        </ol>
+      </article>
+      <article class="method reveal">
+        <h3><span lang="es">Colador de tela</span><span lang="en">Cloth filter</span></h3>
+        <dl class="ratio"><dt><span lang="es">Café</span><span lang="en">Coffee</span></dt><dd>20 g</dd><dt><span lang="es">Agua</span><span lang="en">Water</span></dt><dd>320 ml</dd><dt>°C</dt><dd>92–96</dd></dl>
+        <ol>
+          <li><span lang="es">Calienta el agua hasta justo antes de hervir.</span><span lang="en">Heat water to just off the boil.</span></li>
+          <li><span lang="es">Moja el café con un poco de agua y espera 30 segundos.</span><span lang="en">Wet the grounds with a little water and wait 30 seconds.</span></li>
+          <li><span lang="es">Vierte el resto despacio, en círculos.</span><span lang="en">Pour the rest slowly, in circles.</span></li>
+        </ol>
+      </article>
+      <article class="method reveal">
+        <h3><span lang="es">Prensa francesa</span><span lang="en">French press</span></h3>
+        <dl class="ratio"><dt><span lang="es">Café</span><span lang="en">Coffee</span></dt><dd>30 g</dd><dt><span lang="es">Agua</span><span lang="en">Water</span></dt><dd>500 ml</dd><dt><span lang="es">Tiempo</span><span lang="en">Time</span></dt><dd>4 min</dd></dl>
+        <ol>
+          <li><span lang="es">Agrega el agua caliente y revuelve una vez.</span><span lang="en">Add hot water and stir once.</span></li>
+          <li><span lang="es">Tapa y espera cuatro minutos.</span><span lang="en">Cover and wait four minutes.</span></li>
+          <li><span lang="es">Baja el émbolo despacio y sirve todo.</span><span lang="en">Press slowly and pour it all out.</span></li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="keep reveal">
+      <strong><span lang="es">Para guardarlo</span><span lang="en">To keep it</span></strong>
+      <span><span lang="es">Cierra bien la bolsa después de cada uso, lejos del calor, la luz y la humedad. No lo metas al refrigerador.</span><span lang="en">Seal the bag tight after each use, away from heat, light and moisture. Keep it out of the fridge.</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order on-yellow" id="pedidos" aria-labelledby="order-h">
+  <div class="wrap order-grid">
+    <div class="order-bag">
+    <div class="bag-stage reveal">
+      <svg class="bag" viewBox="0 0 340 580" role="img" aria-label="Bolsa de café El Ocotal, 400 gramos">
+        <g clip-path="url(#bagClip)">
+          <rect x="0" y="0" width="340" height="580" fill="#141310"/>
+          <!-- foil gussets -->
+          <rect x="18" y="30" width="34" height="530" fill="url(#foilSide)"/>
+          <rect x="288" y="30" width="34" height="530" fill="url(#foilSide)" transform="matrix(-1 0 0 1 610 0)"/>
+          <!-- yellow label -->
+          <rect x="50" y="52" width="240" height="392" fill="#F1D417"/>
+          <!-- logo window -->
+          <rect x="64" y="66" width="212" height="148" fill="url(#windowGrad)"/>
+          <g style="color:#C9A45C">
+            <use href="#logo" x="128" y="78" width="84" height="84"/>
+            <use href="#pine" x="72" y="104" width="14" height="30" fill="#C9A45C" opacity=".7"/>
+            <use href="#pine" x="86" y="96" width="18" height="38" fill="#C9A45C" opacity=".85"/>
+            <use href="#pine" x="236" y="96" width="18" height="38" fill="#C9A45C" opacity=".85"/>
+            <use href="#pine" x="254" y="104" width="14" height="30" fill="#C9A45C" opacity=".7"/>
+          </g>
+          <text x="170" y="186" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="30" fill="#C9A45C">el Ocotal</text>
+          <text x="170" y="203" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="7.5" letter-spacing="2.4" fill="#C9A45C">CAFÉ DE NICARAGUA</text>
+          <!-- label copy, as printed -->
+          <text x="170" y="252" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#12110D">CAFÉ DE ORIGEN</text>
+          <text x="170" y="302" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#12110D">100% ARÁBICA</text>
+          <text x="170" y="318" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="600" font-size="9" letter-spacing=".6" fill="#12110D">TUESTE MEDIO</text>
+          <text x="170" y="372" text-anchor="middle" font-family="Antonio, sans-serif" font-weight="700" font-size="25" letter-spacing=".5" fill="#12110D">CAFÉ DE NICARAGUA</text>
+          <text x="170" y="393" text-anchor="middle" font-family="Antonio, sans-serif" font-weight="700" font-size="15" letter-spacing=".5" fill="#12110D">GOURMET</text>
+          <!-- foil band -->
+          <rect x="50" y="444" width="240" height="116" fill="url(#band)"/>
+          <text x="170" y="498" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="600" font-size="13" letter-spacing=".8" fill="#F3EEE1">TOSTADO Y MOLIDO</text>
+          <text x="170" y="532" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="7" letter-spacing="1" fill="#F3EEE1" opacity=".85">PESO NETO 400 G</text>
+          <!-- crimped seal -->
+          <rect x="20" y="30" width="300" height="22" fill="#0b0b09"/>
+          <g stroke="#2a2a26" stroke-width="1.2">
+            <path d="M30 33v16M38 33v16M46 33v16M54 33v16M62 33v16M70 33v16M78 33v16M86 33v16M94 33v16M102 33v16M110 33v16M118 33v16M126 33v16M134 33v16M142 33v16M150 33v16M158 33v16M166 33v16M174 33v16M182 33v16M190 33v16M198 33v16M206 33v16M214 33v16M222 33v16M230 33v16M238 33v16M246 33v16M254 33v16M262 33v16M270 33v16M278 33v16M286 33v16M294 33v16M302 33v16M310 33v16"/>
+          </g>
+          <!-- soft fold shading -->
+          <rect x="50" y="52" width="240" height="508" fill="url(#foilSide)" opacity=".06"/>
+          <rect class="sheen" x="40" y="0" width="120" height="580" fill="url(#sheenGrad)" transform="skewX(-14)"/>
+        </g>
+      </svg>
+    </div>
+    </div>
+    <div class="order-copy">
+      <p class="eyebrow"><span lang="es">Pedidos</span><span lang="en">Orders</span></p>
+      <h2 id="order-h"><i><span lang="es">Una bolsa de</span><span lang="en">A bag of</span></i>400 <span class="unit">g</span></h2>
+      <dl class="product">
+        <div><dt><span lang="es">Molienda</span><span lang="en">Grind</span></dt><dd><span lang="es">Molido</span><span lang="en">Ground</span></dd></div>
+        <div><dt><span lang="es">Tueste</span><span lang="en">Roast</span></dt><dd><span lang="es">Medio</span><span lang="en">Medium</span></dd></div>
+        <div><dt><span lang="es">Precio</span><span lang="en">Price</span></dt><dd data-ph>US$ <span id="unit-price">14.00</span></dd></div>
+      </dl>
+      <div class="qty-row">
+        <div class="qty" role="group" aria-label="Cantidad / Quantity">
+          <button type="button" data-q="-1" aria-label="Menos">−</button>
+          <output id="qty" aria-live="polite">1</output>
+          <button type="button" data-q="1" aria-label="Más">+</button>
+        </div>
+        <p class="total"><span lang="es">Total</span><span lang="en">Total</span> <strong data-ph>US$ <span id="total">14.00</span></strong></p>
+      </div>
+      <div class="order-cta">
+        <a class="btn btn-ink" id="wa" data-ph href="https://wa.me/" target="_blank" rel="noopener"><span lang="es">Pedir por WhatsApp</span><span lang="en">Order on WhatsApp</span> →</a>
+        <a class="btn btn-ink-line" id="mail" href="mailto:cafeelocotalnic@gmail.com"><span lang="es">Pedir por correo</span><span lang="en">Order by email</span></a>
+      </div>
+      <p class="ship" data-ph><span lang="es">Envíos en Nicaragua y a Estados Unidos. Te confirmamos costo y fecha al recibir tu pedido.</span><span lang="en">Shipping within Nicaragua and to the United States. We confirm cost and date when we get your order.</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="stamp"><span lang="es">Tostado y molido</span><span lang="en">Roasted &amp; ground</span></div>
+      <div class="meta">
+        <span><span lang="es">Peso neto 400 g</span><span lang="en">Net wt. 400 g</span></span>
+        <span>100% Arábica</span>
+        <span><span lang="es">Hecho en Nicaragua</span><span lang="en">Made in Nicaragua</span></span>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© 2026 El Ocotal · Café de Nicaragua</span>
+      <span><span lang="es">Concepto de sitio web, no oficial.</span><span lang="en">Website concept, unofficial.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// language
+(function(){
+  const root=document.documentElement, btns=document.querySelectorAll('.lang button');
+  function set(l){root.dataset.lang=l;root.lang=l;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('ocotal-lang',l)}catch(e){}}
+  btns.forEach(b=>b.addEventListener('click',()=>set(b.dataset.set)));
+  try{const s=localStorage.getItem('ocotal-lang');if(s)set(s)}catch(e){}
+})();
+
+// nav background on scroll
+(function(){const n=document.getElementById('nav');const f=()=>n.classList.toggle('solid',scrollY>40);f();addEventListener('scroll',f,{passive:true})})();
+
+// pine ridge — three layers of ocotes along the bottom of the hero
+(function(){
+  const svg=document.getElementById('ridge'),NS='http://www.w3.org/2000/svg';
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const layers=[{base:210,h:[60,120],gap:[22,40],fill:'#1a1f17',op:1},{base:250,h:[70,140],gap:[26,46],fill:'#151a13',op:1},{base:300,h:[80,150],gap:[30,56],fill:'#12110D',op:1}];
+  layers.forEach(L=>{
+    let d=`M0 300 L0 ${L.base}`;let x=-20;
+    while(x<1460){
+      const h=L.h[0]+rnd()*(L.h[1]-L.h[0]);const w=h*.42;const top=L.base-h;
+      d+=` L${x} ${L.base} L${x+w*.18} ${L.base-h*.3} L${x+w*.1} ${L.base-h*.3} L${x+w*.3} ${L.base-h*.62} L${x+w*.24} ${L.base-h*.62} L${x+w/2} ${top} L${x+w*.76} ${L.base-h*.62} L${x+w*.7} ${L.base-h*.62} L${x+w*.9} ${L.base-h*.3} L${x+w*.82} ${L.base-h*.3} L${x+w} ${L.base}`;
+      x+=w+(L.gap[0]+rnd()*(L.gap[1]-L.gap[0]))*.4;
+    }
+    d+=` L1440 ${L.base} L1440 300 Z`;
+    const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('fill',L.fill);svg.appendChild(p);
+  });
+})();
+
+// scroll reveals
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  els.forEach(e=>io.observe(e));
+})();
+
+// placeholders: open with ?ph to outline everything still to confirm
+if(/[?&]ph\b/.test(location.search))document.documentElement.classList.add('ph');
+
+// order: quantity, total, prefilled WhatsApp / email
+(function(){
+  const PRICE=14, WA_NUMBER='';            // placeholder: put the owner's WhatsApp number here, e.g. '50588887777'
+  const q=document.getElementById('qty'),t=document.getElementById('total'),wa=document.getElementById('wa'),mail=document.getElementById('mail');
+  let n=1;
+  function msg(){const es=document.documentElement.dataset.lang!=='en';
+    return es?`Hola, quiero pedir ${n} bolsa${n>1?'s':''} de café El Ocotal (400 g, molido).`:`Hi, I'd like to order ${n} bag${n>1?'s':''} of El Ocotal coffee (400 g, ground).`}
+  function upd(){q.textContent=n;t.textContent=(n*PRICE).toFixed(2);
+    wa.href=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg())}`;
+    mail.href=`mailto:cafeelocotalnic@gmail.com?subject=${encodeURIComponent('Pedido El Ocotal')}&body=${encodeURIComponent(msg())}`}
+  document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{n=Math.min(24,Math.max(1,n+ +b.dataset.q));upd()}));
+  document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',upd));
+  upd();
+})();
+</script>
+
+<!-- Three.js is bundled locally so the bean works offline and from a double-clicked file -->
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/bean.js"></script>
+</body>
+</html>
