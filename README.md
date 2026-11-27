@@ -19,6 +19,10 @@ The brand's only asset is its bag, so **the site is the bag**. The hero is the b
 | cafeelocotalnic@gmail.com | Bag front (printed as "gmailcom", missing the dot) |
 | Ocotal = place of ocote pines; from Nahuatl *ocotl* | General Spanish usage |
 | Brew ratios, storage tips | General coffee guidance, not from the brand |
+| "De nuestra finca a tu taza", 100% produced on our farm, specialty coffee | Owner's promo video (WhatsApp, 2026-11-26) |
+| Elevation 1,200–1,300 masl; Catuaí, Catimor, Parainema; natural process, patio-dried in the sun; regulated shade; hand harvest December–March | Owner's promo video, info poster |
+| Tasting notes: chocolate, blueberries, citrus acidity | Owner's promo video, info poster |
+| `assets/finca-scene.svg` (coffee branch over pine hills) | Original illustration drawn in code (`el-ocotal-ad/scripts/finca_art.py`). No client photos are used on the site |
 
 ## 3D bean (hero)
 
@@ -31,22 +35,18 @@ Drag to spin it. It stops spinning when reduced motion is on, and uses lighter s
 
 ## Placeholders
 
-Online search found nothing for the brand (no site, social account or listings), so these are educated guesses. Open `index.html?ph` to outline each one in pink.
+The farm facts (altitude, process, notes) now come from the owner's video, and the guessed region was removed. What's left are guesses. Open `index.html?ph` to outline each one in pink.
 
 | Placeholder | Value used | Why |
 |---|---|---|
-| Region | Nueva Segovia | The brand name matches Ocotal, the capital of Nueva Segovia |
-| Altitude | 1,200–1,500 masl | Typical for Dipilto/Ocotal coffee |
-| Process | Washed | Most common in the region |
-| Tasting notes | Milk chocolate, panela, walnut | Common for medium-roast Nueva Segovia coffee |
 | Price | US$ 14.00 | `PRICE` in the order script |
 | WhatsApp | Opens WhatsApp with a prefilled message and no number | Set `WA_NUMBER` in the order script |
 | Shipping | Nicaragua and the United States | Guess |
 
 ## To confirm with the owner
 
-- [ ] The farm or region (Nueva Segovia? Jinotega? Matagalpa?). There's a town called Ocotal in Nueva Segovia, a coffee region, but I couldn't confirm the link, so the site only says "Nicaragua"
+- [ ] The farm's town or region. The video doesn't say, so the site only says "Nicaragua"
+- [ ] The producers' names. The poster lists them, but the coffee-cup emoji cover them (it looks like "Elmer Augusto Reyes & …")
 - [ ] The original logo file. The logo on the site is a stand-in drawn from the photo
 - [ ] Prices, shipping area, WhatsApp or phone number (the order section is email-only for now)
-- [ ] Real photos of the farm, beans or roasting; any would make the "El nombre" section much stronger
 - [ ] The email typo on the bag

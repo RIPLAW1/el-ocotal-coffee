@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>El Ocotal · Café de Nicaragua</title>
-<meta name="description" content="El Ocotal: café de origen nicaragüense, 100% arábica, tueste medio, tostado y molido. Concepto de sitio web no oficial.">
+<meta name="description" content="El Ocotal: café de especialidad de Nicaragua, 100% arábica de nuestra finca, cultivado bajo sombra y cosechado a mano. Tueste medio, tostado y molido. Concepto de sitio web no oficial.">
 <link href="assets/fonts.css" rel="stylesheet">
 <style>
 :root{
@@ -196,6 +196,25 @@ footer .stamp{font-family:var(--f-sans);font-weight:600;letter-spacing:.14em;fon
 footer .meta{display:flex;gap:28px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
 footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,225,.18);font-size:.72rem;opacity:.6;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
+/* ---------- FARM ---------- */
+.finca{padding:clamp(96px,13vw,170px) 0;background:var(--resina)}
+.finca .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,110px);align-items:center}
+.finca-photo{position:relative}
+.finca-photo img{width:100%;height:auto;aspect-ratio:9/14;object-fit:cover;object-position:60% 30%;border-radius:2px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.finca-photo::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid rgba(201,164,92,.45);z-index:-1}
+.finca-photo{z-index:0}
+.finca-photo figcaption{margin-top:16px;font-family:var(--f-serif);font-style:italic;font-size:1.05rem;color:rgba(243,238,225,.65)}
+.finca .eyebrow{color:var(--foil)}
+.finca h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.02;margin:20px 0 28px}
+.finca h2 i{color:var(--foil);display:block}
+.finca-copy > p:not(.eyebrow){color:rgba(243,238,225,.78);max-width:34rem}
+.facts{display:grid;grid-template-columns:1fr 1fr;margin-top:44px;border-top:1px solid rgba(201,164,92,.4)}
+.facts > div{padding:20px 20px 18px 0;border-bottom:1px solid rgba(201,164,92,.16)}
+.facts > div:nth-child(even){padding-left:20px;border-left:1px solid rgba(201,164,92,.16)}
+.facts dt{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--foil)}
+.facts dd{font-family:var(--f-serif);font-size:clamp(1.15rem,1.8vw,1.45rem);line-height:1.2;margin-top:6px;color:var(--hueso)}
+.facts small{font-family:var(--f-sans);font-size:.7rem;letter-spacing:.14em;opacity:.7}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
   .nav ul li.link{display:none}
@@ -211,6 +230,8 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
   .spec li{grid-template-columns:1fr;gap:12px}
   .name .wrap{grid-template-columns:1fr}
   .name figure{max-width:360px}
+  .finca .wrap{grid-template-columns:1fr}
+  .finca-photo{max-width:340px;margin-left:14px}
   .brew-head{grid-template-columns:1fr}
   .brew-head p{justify-self:start}
   .methods{grid-template-columns:1fr}
@@ -265,6 +286,7 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
     <nav aria-label="Principal">
       <ul>
         <li class="link"><a href="#etiqueta"><span lang="es">El café</span><span lang="en">The coffee</span></a></li>
+        <li class="link"><a href="#finca"><span lang="es">La finca</span><span lang="en">The farm</span></a></li>
         <li class="link"><a href="#nombre"><span lang="es">El nombre</span><span lang="en">The name</span></a></li>
         <li class="link"><a href="#preparar"><span lang="es">Preparar</span><span lang="en">Brew</span></a></li>
         <li class="link"><a href="#pedidos"><span lang="es">Pedidos</span><span lang="en">Order</span></a></li>
@@ -285,14 +307,14 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow"><span lang="es">Café de origen · Nicaragua</span><span lang="en">Single-origin · Nicaragua</span></p>
+      <p class="eyebrow"><span lang="es">De nuestra finca a tu taza</span><span lang="en">From our farm to your cup</span></p>
       <h1 id="h1">
         <span class="script">el Ocotal</span>
         <span class="shout"><span lang="es">Café de<br><em>Nicaragua</em></span><span lang="en">Coffee of<br><em>Nicaragua</em></span></span>
       </h1>
       <p class="hero-sub">
-        <span lang="es">Cien por ciento arábica, tueste medio. Tostado y molido en Nicaragua, listo para tu colador o tu cafetera.</span>
-        <span lang="en">One hundred percent arabica, medium roast. Roasted and ground in Nicaragua, ready for your pour-over or drip machine.</span>
+        <span lang="es">Café de especialidad, cien por ciento arábica, cultivado bajo sombra y cosechado a mano en nuestra finca. Tueste medio, tostado y molido, listo para tu colador o tu cafetera.</span>
+        <span lang="en">Specialty coffee, one hundred percent arabica, shade-grown and hand-picked on our own farm. Medium roast, roasted and ground, ready for your pour-over or drip machine.</span>
       </p>
       <div class="hero-cta">
         <a class="btn btn-saco" href="#pedidos"><span lang="es">Pedir una bolsa</span><span lang="en">Order a bag</span> →</a>
@@ -318,7 +340,7 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
     <ol class="spec">
       <li class="reveal">
         <div class="term"><small><span lang="es">Origen</span><span lang="en">Origin</span></small><span lang="es">Café de origen</span><span lang="en">Single origin</span></div>
-        <p class="gloss"><span lang="es">Todo el grano viene de Nicaragua. No es una mezcla de países: lo que pruebas es un solo lugar.</span><span lang="en">Every bean comes from Nicaragua. Not a blend of countries: what you taste is one place.</span></p>
+        <p class="gloss"><span lang="es">Todo el grano sale de nuestra finca en Nicaragua. No es una mezcla: lo que pruebas es un solo lugar.</span><span lang="en">Every bean comes from our own farm in Nicaragua. Not a blend: what you taste is one place.</span></p>
       </li>
       <li class="reveal">
         <div class="term"><small><span lang="es">Grano</span><span lang="en">Bean</span></small>100% Arábica</div>
@@ -337,6 +359,29 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
         <p class="gloss"><span lang="es">Unas cuarenta tazas, a diez gramos por taza.</span><span lang="en">About forty cups, at ten grams a cup.</span></p>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- FARM: real photo + the farm's own facts -->
+<section class="finca" id="finca" aria-labelledby="finca-h">
+  <div class="wrap">
+    <figure class="finca-photo reveal">
+      <img src="assets/finca-scene.svg" width="1080" height="1920" loading="lazy" alt="Ilustración: rama de cafeto con cerezas maduras frente a montañas de pinos al amanecer">
+      <figcaption><span lang="es">Cafeto en cosecha, entre montañas de pinos.</span><span lang="en">A coffee tree at harvest, among pine-covered hills.</span></figcaption>
+    </figure>
+    <div class="finca-copy reveal">
+      <p class="eyebrow"><span lang="es">La finca</span><span lang="en">The farm</span></p>
+      <h2 id="finca-h"><span lang="es">Cien por ciento <i>de nuestra finca.</i></span><span lang="en">One hundred percent <i>from our farm.</i></span></h2>
+      <p><span lang="es">No compramos grano a otros. Lo sembramos bajo sombra, lo cosechamos a mano de diciembre a marzo y lo secamos al sol en el patio, como se ha hecho siempre en la montaña.</span><span lang="en">We don't buy beans from anyone else. We grow it under shade, pick it by hand from December to March, and dry it in the sun on the patio, the way it has always been done in the mountains.</span></p>
+      <dl class="facts">
+        <div><dt><span lang="es">Altura</span><span lang="en">Elevation</span></dt><dd>1.200–1.300 <small>msnm</small></dd></div>
+        <div><dt><span lang="es">Variedades</span><span lang="en">Varieties</span></dt><dd>Catuaí · Catimor · Parainema</dd></div>
+        <div><dt><span lang="es">Proceso</span><span lang="en">Process</span></dt><dd><span lang="es">Natural, secado al sol en patio</span><span lang="en">Natural, patio-dried in the sun</span></dd></div>
+        <div><dt><span lang="es">Sombra</span><span lang="en">Shade</span></dt><dd><span lang="es">Regulada</span><span lang="en">Regulated</span></dd></div>
+        <div><dt><span lang="es">Cosecha</span><span lang="en">Harvest</span></dt><dd><span lang="es">A mano, diciembre–marzo</span><span lang="en">By hand, December–March</span></dd></div>
+        <div><dt><span lang="es">En la taza</span><span lang="en">In the cup</span></dt><dd><span lang="es">Chocolate, arándanos, acidez cítrica</span><span lang="en">Chocolate, blueberries, citrus acidity</span></dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
@@ -369,14 +414,6 @@ footer .fine{margin-top:60px;padding-top:22px;border-top:1px solid rgba(243,238,
         <dd><span lang="es">Sitio poblado de ocotes. Del náhuatl <i>ocotl</i>, tea o antorcha de pino.</span><span lang="en">A place grown with ocote pines. From Nahuatl <i>ocotl</i>, a pine torch.</span></dd>
       </dl>
     </div>
-  </div>
-  <div class="wrap origin-wrap">
-    <dl class="origin reveal">
-      <div><dt><span lang="es">Región</span><span lang="en">Region</span></dt><dd data-ph>Nueva Segovia</dd></div>
-      <div><dt><span lang="es">Altura</span><span lang="en">Altitude</span></dt><dd data-ph>1.200–1.500 <small>msnm</small></dd></div>
-      <div><dt><span lang="es">Proceso</span><span lang="en">Process</span></dt><dd data-ph><span lang="es">Lavado</span><span lang="en">Washed</span></dd></div>
-      <div><dt><span lang="es">En la taza</span><span lang="en">In the cup</span></dt><dd data-ph><span lang="es">Chocolate de leche, panela, nuez</span><span lang="en">Milk chocolate, panela, walnut</span></dd></div>
-    </dl>
   </div>
 </section>
 
